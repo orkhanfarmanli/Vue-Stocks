@@ -49,7 +49,7 @@
                             <li><a>End Day</a></li>
                             <li><a>Save</a></li>
                             <li><a>Load</a></li>
-                            <li><a>Funds: {{ funds }}</a></li>
+                            <li><a>Funds: ${{ funds }}</a></li>
                         </ul>
                     </div>
                 </nav>

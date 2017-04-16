@@ -1,5 +1,5 @@
 <template>
-    <div id="stocks" class="columns">
+    <div id="stocks" class="columns is-multiline">
         <div class="column is-6" v-for="stock in stocks">
             <div class="card">
                 <div class="card-content">
@@ -11,9 +11,8 @@
                             <input v-model="stock.quantity" type="number" placeholder="Quantity" class="input is-5 is-dark">
                         </div>
                         <div class="column is-2">
-                            <button @click="buyStocks(stock.quantity, stock.price)" class="button is-dark is-outlined is-fullwidth">Buy</button>
+                            <button @click="buyStocks(stock)" class="button is-dark is-outlined is-fullwidth">Buy</button>
                         </div>
-                        {{ funds }}
                     </div>
                 </div>
             </div>
@@ -25,25 +24,24 @@
     export default {
         data(){
             return {
-                stocks: [
-                    {
-                        name: "BMW",
-                        price: 15,
-                        quantity: ''
-                    },
-                    {
-                        name: "Google",
-                        price: 20,
-                        quantity: ''
-                    }
-                ],
-                funds: 10000,
+                stocks: this.$store.state.stocks,
+                boughtStocks: this.$store.state.boughtStocks
             }
         },
         methods: {
-            buyStocks(quantity, price){
-                this.quantity = '';
-                return this.funds -= quantity * price;
+            buyStocks(stock){
+                let value = stock.quantity * stock.price;
+                this.$store.commit('buyStock', { value });
+                this.boughtStocks.push({
+                    name: stock.name,
+                    price: stock.price,
+                    quantity: eval(stock.quantity)
+                });
+            }
+        },
+        watch: {
+            boughtStocks(){
+                console.log(this.boughtStocks);
             }
         }
     }
