@@ -24,12 +24,6 @@
                             <router-link tag="a" class="nav-item" to="/portfolio" activeClass="is-active">
                                 Portfolio
                             </router-link>
-                            <!--<a class="nav-item">-->
-                            <!--Portfolio-->
-                            <!--</a>-->
-                            <!--<a class="nav-item">-->
-                            <!--Stocks-->
-                            <!--</a>-->
                         </div>
                     </div>
                 </header>
@@ -55,7 +49,7 @@
                             <li><a>End Day</a></li>
                             <li><a>Save</a></li>
                             <li><a>Load</a></li>
-                            <li><a>Funds: $10000</a></li>
+                            <li><a>Funds: {{ funds }}</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -66,6 +60,11 @@
 
 <script>
     export default {
+        computed: {
+            funds(){
+                return this.$store.state.funds;
+            }
+        }
     }
 </script>
 

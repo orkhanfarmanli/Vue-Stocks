@@ -2,12 +2,13 @@
     <div id="home columns">
         <div class="card column is-12">
             <div class="card-content">
+                <p class="title">Home Page</p>
                 <div class="content">
-                    <p class="title">Component</p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                    <a>@bulmaio</a>. <a>#css</a> <a>#responsive</a>
+                    There will be something useful here in the future, I guess :D
                     <br>
-                    <small>11:09 PM - 1 Jan 2016</small>
+                    <a>orkhanfarmanli@gmail.com</a>
+                    <br>
+                    <small>16 Apr 2017</small>
                 </div>
             </div>
         </div>
