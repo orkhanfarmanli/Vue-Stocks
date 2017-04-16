@@ -27,8 +27,16 @@ export const store = new Vuex.Store({
         boughtStocks: []
     },
     mutations: {
-        buyStock(state, value){
-            state.funds -= value.value;
+        buyStock(state, stock){
+            "use strict";
+            state.funds -= eval(stock.quantity * stock.price);
+            state.boughtStocks.push(stock);
+        },
+        sellStock(state, stock){
+            "use strict";
+            let index = state.boughtStocks.indexOf(stock);
+            console.log(index);
+            state.boughtStocks.splice(index, 1);
         }
     }
 });

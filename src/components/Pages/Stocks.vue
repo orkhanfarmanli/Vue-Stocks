@@ -8,10 +8,12 @@
                     </p>
                     <div class="content columns">
                         <div class="column is-10">
-                            <input v-model="stock.quantity" type="number" placeholder="Quantity" class="input is-5 is-dark">
+                            <input v-model="stock.quantity" type="number" placeholder="Quantity"
+                                   class="input is-5 is-dark">
                         </div>
                         <div class="column is-2">
-                            <button @click="buyStocks(stock)" class="button is-dark is-outlined is-fullwidth">Buy</button>
+                            <button @click="buyStocks(stock)" class="button is-dark is-outlined is-fullwidth">Buy
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -30,18 +32,12 @@
         },
         methods: {
             buyStocks(stock){
-                let value = stock.quantity * stock.price;
-                this.$store.commit('buyStock', { value });
-                this.boughtStocks.push({
+                let boughtStock = {
                     name: stock.name,
                     price: stock.price,
                     quantity: eval(stock.quantity)
-                });
-            }
-        },
-        watch: {
-            boughtStocks(){
-                console.log(this.boughtStocks);
+                };
+                this.$store.commit('buyStock', boughtStock);
             }
         }
     }
